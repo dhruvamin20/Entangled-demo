@@ -10,7 +10,7 @@
 #import "DetailViewController.h"
 #import "MasterViewController.h"
 
-@interface AppDelegate () <UISplitViewControllerDelegate>
+@interface AppDelegate () <UISplitViewControllerDelegate, CLLocationManagerDelegate>
 
 @end
 

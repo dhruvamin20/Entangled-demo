@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Property (CoreDataProperties)
 
-@property (nonatomic) NSTimeInterval timeStamp;
+@property (nonatomic) NSDate *timeStamp;
 @property (nullable, nonatomic, retain) NSString *propertyName;
 @property (nullable, nonatomic, retain) NSDecimalNumber *buildingValue;
 @property (nullable, nonatomic, retain) NSDecimalNumber *currency;
