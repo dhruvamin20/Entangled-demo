@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FCC383E71CB40EC000E40EE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383E61CB40EC000E40EE1 /* main.m */; };
+		FCC383EA1CB40EC000E40EE1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383E91CB40EC000E40EE1 /* AppDelegate.m */; };
+		FCC383ED1CB40EC000E40EE1 /* Entangled.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCC383EB1CB40EC000E40EE1 /* Entangled.xcdatamodeld */; };
+		FCC383F01CB40EC000E40EE1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383EF1CB40EC000E40EE1 /* MasterViewController.m */; };
+		FCC383F31CB40EC000E40EE1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383F21CB40EC000E40EE1 /* DetailViewController.m */; };
+		FCC383F61CB40EC000E40EE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC383F41CB40EC000E40EE1 /* Main.storyboard */; };
+		FCC383F81CB40EC000E40EE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCC383F71CB40EC000E40EE1 /* Assets.xcassets */; };
+		FCC383FB1CB40EC000E40EE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC383F91CB40EC000E40EE1 /* LaunchScreen.storyboard */; };
+		FCC384061CB40EC000E40EE1 /* EntangledTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC384051CB40EC000E40EE1 /* EntangledTests.m */; };
+		FCC384141CB41F0300E40EE1 /* Room+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC384111CB41F0300E40EE1 /* Room+CoreDataProperties.m */; };
+		FCC384151CB41F0300E40EE1 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC384131CB41F0300E40EE1 /* Room.m */; };
+		FCC3841B1CB41FA500E40EE1 /* Property+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC384181CB41FA500E40EE1 /* Property+CoreDataProperties.m */; };
+		FCC3841C1CB41FA500E40EE1 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC3841A1CB41FA500E40EE1 /* Property.m */; };
+		FCC384211CB41FC200E40EE1 /* Items+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC3841E1CB41FC200E40EE1 /* Items+CoreDataProperties.m */; };
+		FCC384221CB41FC200E40EE1 /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC384201CB41FC200E40EE1 /* Items.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCC384021CB40EC000E40EE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCC383DA1CB40EC000E40EE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCC383E11CB40EC000E40EE1;
+			remoteInfo = Entangled;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FCC383E21CB40EC000E40EE1 /* Entangled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Entangled.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCC383E61CB40EC000E40EE1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FCC383E81CB40EC000E40EE1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FCC383E91CB40EC000E40EE1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FCC383EC1CB40EC000E40EE1 /* Entangled.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Entangled.xcdatamodel; sourceTree = "<group>"; };
+		FCC383EE1CB40EC000E40EE1 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		FCC383EF1CB40EC000E40EE1 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		FCC383F11CB40EC000E40EE1 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		FCC383F21CB40EC000E40EE1 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		FCC383F51CB40EC000E40EE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FCC383F71CB40EC000E40EE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCC383FA1CB40EC000E40EE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FCC383FC1CB40EC000E40EE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCC384011CB40EC000E40EE1 /* EntangledTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntangledTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCC384051CB40EC000E40EE1 /* EntangledTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntangledTests.m; sourceTree = "<group>"; };
+		FCC384071CB40EC000E40EE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCC384101CB41F0300E40EE1 /* Room+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Room+CoreDataProperties.h"; path = "Model/Room+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FCC384111CB41F0300E40EE1 /* Room+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Room+CoreDataProperties.m"; path = "Model/Room+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FCC384121CB41F0300E40EE1 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Room.h; path = Model/Room.h; sourceTree = "<group>"; };
+		FCC384131CB41F0300E40EE1 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Room.m; path = Model/Room.m; sourceTree = "<group>"; };
+		FCC384171CB41FA500E40EE1 /* Property+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Property+CoreDataProperties.h"; path = "Model/Property+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FCC384181CB41FA500E40EE1 /* Property+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Property+CoreDataProperties.m"; path = "Model/Property+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FCC384191CB41FA500E40EE1 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Property.h; path = Model/Property.h; sourceTree = "<group>"; };
+		FCC3841A1CB41FA500E40EE1 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Property.m; path = Model/Property.m; sourceTree = "<group>"; };
+		FCC3841D1CB41FC200E40EE1 /* Items+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Items+CoreDataProperties.h"; path = "Model/Items+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FCC3841E1CB41FC200E40EE1 /* Items+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Items+CoreDataProperties.m"; path = "Model/Items+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FCC3841F1CB41FC200E40EE1 /* Items.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Items.h; path = Model/Items.h; sourceTree = "<group>"; };
+		FCC384201CB41FC200E40EE1 /* Items.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Items.m; path = Model/Items.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCC383DF1CB40EC000E40EE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCC383FE1CB40EC000E40EE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FCC383D91CB40EC000E40EE1 = {
+			isa = PBXGroup;
+			children = (
+				FCC383E41CB40EC000E40EE1 /* Entangled */,
+				FCC384041CB40EC000E40EE1 /* EntangledTests */,
+				FCC383E31CB40EC000E40EE1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FCC383E31CB40EC000E40EE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCC383E21CB40EC000E40EE1 /* Entangled.app */,
+				FCC384011CB40EC000E40EE1 /* EntangledTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FCC383E41CB40EC000E40EE1 /* Entangled */ = {
+			isa = PBXGroup;
+			children = (
+				FCC384251CB424BE00E40EE1 /* ViewControllers */,
+				FCC384241CB4245F00E40EE1 /* Storyboard */,
+				FCC384161CB41F5800E40EE1 /* Data Model */,
+				FCC383EB1CB40EC000E40EE1 /* Entangled.xcdatamodeld */,
+				FCC383E51CB40EC000E40EE1 /* Supporting Files */,
+			);
+			path = Entangled;
+			sourceTree = "<group>";
+		};
+		FCC383E51CB40EC000E40EE1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FCC383F71CB40EC000E40EE1 /* Assets.xcassets */,
+				FCC383FC1CB40EC000E40EE1 /* Info.plist */,
+				FCC383E81CB40EC000E40EE1 /* AppDelegate.h */,
+				FCC383E91CB40EC000E40EE1 /* AppDelegate.m */,
+				FCC383E61CB40EC000E40EE1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCC384041CB40EC000E40EE1 /* EntangledTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCC384051CB40EC000E40EE1 /* EntangledTests.m */,
+				FCC384071CB40EC000E40EE1 /* Info.plist */,
+			);
+			path = EntangledTests;
+			sourceTree = "<group>";
+		};
+		FCC384161CB41F5800E40EE1 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				FCC384231CB422D400E40EE1 /* Generated */,
+				FCC3841D1CB41FC200E40EE1 /* Items+CoreDataProperties.h */,
+				FCC3841E1CB41FC200E40EE1 /* Items+CoreDataProperties.m */,
+				FCC3841F1CB41FC200E40EE1 /* Items.h */,
+				FCC384201CB41FC200E40EE1 /* Items.m */,
+				FCC384171CB41FA500E40EE1 /* Property+CoreDataProperties.h */,
+				FCC384181CB41FA500E40EE1 /* Property+CoreDataProperties.m */,
+				FCC384191CB41FA500E40EE1 /* Property.h */,
+				FCC3841A1CB41FA500E40EE1 /* Property.m */,
+				FCC384101CB41F0300E40EE1 /* Room+CoreDataProperties.h */,
+				FCC384111CB41F0300E40EE1 /* Room+CoreDataProperties.m */,
+				FCC384121CB41F0300E40EE1 /* Room.h */,
+				FCC384131CB41F0300E40EE1 /* Room.m */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		FCC384231CB422D400E40EE1 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Generated;
+			sourceTree = "<group>";
+		};
+		FCC384241CB4245F00E40EE1 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FCC383F41CB40EC000E40EE1 /* Main.storyboard */,
+				FCC383F91CB40EC000E40EE1 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FCC384251CB424BE00E40EE1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FCC383EE1CB40EC000E40EE1 /* MasterViewController.h */,
+				FCC383EF1CB40EC000E40EE1 /* MasterViewController.m */,
+				FCC383F11CB40EC000E40EE1 /* DetailViewController.h */,
+				FCC383F21CB40EC000E40EE1 /* DetailViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FCC383E11CB40EC000E40EE1 /* Entangled */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCC3840A1CB40EC000E40EE1 /* Build configuration list for PBXNativeTarget "Entangled" */;
+			buildPhases = (
+				FCC383DE1CB40EC000E40EE1 /* Sources */,
+				FCC383DF1CB40EC000E40EE1 /* Frameworks */,
+				FCC383E01CB40EC000E40EE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Entangled;
+			productName = Entangled;
+			productReference = FCC383E21CB40EC000E40EE1 /* Entangled.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FCC384001CB40EC000E40EE1 /* EntangledTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCC3840D1CB40EC000E40EE1 /* Build configuration list for PBXNativeTarget "EntangledTests" */;
+			buildPhases = (
+				FCC383FD1CB40EC000E40EE1 /* Sources */,
+				FCC383FE1CB40EC000E40EE1 /* Frameworks */,
+				FCC383FF1CB40EC000E40EE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCC384031CB40EC000E40EE1 /* PBXTargetDependency */,
+			);
+			name = EntangledTests;
+			productName = EntangledTests;
+			productReference = FCC384011CB40EC000E40EE1 /* EntangledTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FCC383DA1CB40EC000E40EE1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Spartans;
+				TargetAttributes = {
+					FCC383E11CB40EC000E40EE1 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = RMZL9F7WRM;
+					};
+					FCC384001CB40EC000E40EE1 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = RMZL9F7WRM;
+						TestTargetID = FCC383E11CB40EC000E40EE1;
+					};
+				};
+			};
+			buildConfigurationList = FCC383DD1CB40EC000E40EE1 /* Build configuration list for PBXProject "Entangled" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FCC383D91CB40EC000E40EE1;
+			productRefGroup = FCC383E31CB40EC000E40EE1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FCC383E11CB40EC000E40EE1 /* Entangled */,
+				FCC384001CB40EC000E40EE1 /* EntangledTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FCC383E01CB40EC000E40EE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCC383FB1CB40EC000E40EE1 /* LaunchScreen.storyboard in Resources */,
+				FCC383F81CB40EC000E40EE1 /* Assets.xcassets in Resources */,
+				FCC383F61CB40EC000E40EE1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCC383FF1CB40EC000E40EE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FCC383DE1CB40EC000E40EE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCC384221CB41FC200E40EE1 /* Items.m in Sources */,
+				FCC384211CB41FC200E40EE1 /* Items+CoreDataProperties.m in Sources */,
+				FCC3841B1CB41FA500E40EE1 /* Property+CoreDataProperties.m in Sources */,
+				FCC384141CB41F0300E40EE1 /* Room+CoreDataProperties.m in Sources */,
+				FCC383F31CB40EC000E40EE1 /* DetailViewController.m in Sources */,
+				FCC383F01CB40EC000E40EE1 /* MasterViewController.m in Sources */,
+				FCC383EA1CB40EC000E40EE1 /* AppDelegate.m in Sources */,
+				FCC383ED1CB40EC000E40EE1 /* Entangled.xcdatamodeld in Sources */,
+				FCC384151CB41F0300E40EE1 /* Room.m in Sources */,
+				FCC383E71CB40EC000E40EE1 /* main.m in Sources */,
+				FCC3841C1CB41FA500E40EE1 /* Property.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCC383FD1CB40EC000E40EE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCC384061CB40EC000E40EE1 /* EntangledTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCC384031CB40EC000E40EE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCC383E11CB40EC000E40EE1 /* Entangled */;
+			targetProxy = FCC384021CB40EC000E40EE1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FCC383F41CB40EC000E40EE1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCC383F51CB40EC000E40EE1 /* Base */,
+			);
+			name = Main.storyboard;
+			path = Entangled;
+			sourceTree = "<group>";
+		};
+		FCC383F91CB40EC000E40EE1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCC383FA1CB40EC000E40EE1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			path = Entangled;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FCC384081CB40EC000E40EE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FCC384091CB40EC000E40EE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FCC3840B1CB40EC000E40EE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Entangled/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartans.Entangled;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FCC3840C1CB40EC000E40EE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Entangled/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartans.Entangled;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FCC3840E1CB40EC000E40EE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EntangledTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartans.EntangledTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Entangled.app/Entangled";
+			};
+			name = Debug;
+		};
+		FCC3840F1CB40EC000E40EE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EntangledTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartans.EntangledTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Entangled.app/Entangled";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FCC383DD1CB40EC000E40EE1 /* Build configuration list for PBXProject "Entangled" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCC384081CB40EC000E40EE1 /* Debug */,
+				FCC384091CB40EC000E40EE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCC3840A1CB40EC000E40EE1 /* Build configuration list for PBXNativeTarget "Entangled" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCC3840B1CB40EC000E40EE1 /* Debug */,
+				FCC3840C1CB40EC000E40EE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FCC3840D1CB40EC000E40EE1 /* Build configuration list for PBXNativeTarget "EntangledTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCC3840E1CB40EC000E40EE1 /* Debug */,
+				FCC3840F1CB40EC000E40EE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FCC383EB1CB40EC000E40EE1 /* Entangled.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FCC383EC1CB40EC000E40EE1 /* Entangled.xcdatamodel */,
+			);
+			currentVersion = FCC383EC1CB40EC000E40EE1 /* Entangled.xcdatamodel */;
+			path = Entangled.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FCC383DA1CB40EC000E40EE1 /* Project object */;
+}
