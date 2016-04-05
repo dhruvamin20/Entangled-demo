@@ -10,8 +10,8 @@
 		FCC383E71CB40EC000E40EE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383E61CB40EC000E40EE1 /* main.m */; };
 		FCC383EA1CB40EC000E40EE1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383E91CB40EC000E40EE1 /* AppDelegate.m */; };
 		FCC383ED1CB40EC000E40EE1 /* Entangled.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCC383EB1CB40EC000E40EE1 /* Entangled.xcdatamodeld */; };
-		FCC383F01CB40EC000E40EE1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383EF1CB40EC000E40EE1 /* MasterViewController.m */; };
-		FCC383F31CB40EC000E40EE1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383F21CB40EC000E40EE1 /* DetailViewController.m */; };
+		FCC383F01CB40EC000E40EE1 /* PropertyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383EF1CB40EC000E40EE1 /* PropertyTableViewController.m */; };
+		FCC383F31CB40EC000E40EE1 /* PropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383F21CB40EC000E40EE1 /* PropertyViewController.m */; };
 		FCC383F61CB40EC000E40EE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC383F41CB40EC000E40EE1 /* Main.storyboard */; };
 		FCC383F81CB40EC000E40EE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCC383F71CB40EC000E40EE1 /* Assets.xcassets */; };
 		FCC383FB1CB40EC000E40EE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC383F91CB40EC000E40EE1 /* LaunchScreen.storyboard */; };
@@ -40,10 +40,10 @@
 		FCC383E81CB40EC000E40EE1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FCC383E91CB40EC000E40EE1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FCC383EC1CB40EC000E40EE1 /* Entangled.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Entangled.xcdatamodel; sourceTree = "<group>"; };
-		FCC383EE1CB40EC000E40EE1 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		FCC383EF1CB40EC000E40EE1 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		FCC383F11CB40EC000E40EE1 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		FCC383F21CB40EC000E40EE1 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		FCC383EE1CB40EC000E40EE1 /* PropertyTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertyTableViewController.h; sourceTree = "<group>"; };
+		FCC383EF1CB40EC000E40EE1 /* PropertyTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertyTableViewController.m; sourceTree = "<group>"; };
+		FCC383F11CB40EC000E40EE1 /* PropertyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertyViewController.h; sourceTree = "<group>"; };
+		FCC383F21CB40EC000E40EE1 /* PropertyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertyViewController.m; sourceTree = "<group>"; };
 		FCC383F51CB40EC000E40EE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCC383F71CB40EC000E40EE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCC383FA1CB40EC000E40EE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -174,10 +174,10 @@
 		FCC384251CB424BE00E40EE1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FCC383EE1CB40EC000E40EE1 /* MasterViewController.h */,
-				FCC383EF1CB40EC000E40EE1 /* MasterViewController.m */,
-				FCC383F11CB40EC000E40EE1 /* DetailViewController.h */,
-				FCC383F21CB40EC000E40EE1 /* DetailViewController.m */,
+				FCC383EE1CB40EC000E40EE1 /* PropertyTableViewController.h */,
+				FCC383EF1CB40EC000E40EE1 /* PropertyTableViewController.m */,
+				FCC383F11CB40EC000E40EE1 /* PropertyViewController.h */,
+				FCC383F21CB40EC000E40EE1 /* PropertyViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -288,8 +288,8 @@
 				FCC384211CB41FC200E40EE1 /* Items+CoreDataProperties.m in Sources */,
 				FCC3841B1CB41FA500E40EE1 /* Property+CoreDataProperties.m in Sources */,
 				FCC384141CB41F0300E40EE1 /* Room+CoreDataProperties.m in Sources */,
-				FCC383F31CB40EC000E40EE1 /* DetailViewController.m in Sources */,
-				FCC383F01CB40EC000E40EE1 /* MasterViewController.m in Sources */,
+				FCC383F31CB40EC000E40EE1 /* PropertyViewController.m in Sources */,
+				FCC383F01CB40EC000E40EE1 /* PropertyTableViewController.m in Sources */,
 				FCC383EA1CB40EC000E40EE1 /* AppDelegate.m in Sources */,
 				FCC383ED1CB40EC000E40EE1 /* Entangled.xcdatamodeld in Sources */,
 				FCC384151CB41F0300E40EE1 /* Room.m in Sources */,

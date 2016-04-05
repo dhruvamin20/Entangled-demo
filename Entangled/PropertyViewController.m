@@ -6,13 +6,13 @@
 //  Copyright © 2016 Spartans. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "PropertyViewController.h"
 
-@interface DetailViewController ()
+@interface PropertyViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation PropertyViewController
 
 #pragma mark - Managing the detail item
 
