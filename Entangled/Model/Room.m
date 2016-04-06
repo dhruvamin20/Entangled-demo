@@ -7,6 +7,8 @@
 //
 
 #import "Room.h"
+#import "Items.h"
+#import "Property.h"
 
 @implementation Room
 

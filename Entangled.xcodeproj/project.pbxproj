@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC1FACC71CB4693100E5B119 /* Items+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACC41CB4693100E5B119 /* Items+CoreDataProperties.m */; };
+		FC1FACC81CB4693100E5B119 /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACC61CB4693100E5B119 /* Items.m */; };
+		FC1FACD11CB4694F00E5B119 /* Property+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACCA1CB4694F00E5B119 /* Property+CoreDataProperties.m */; };
+		FC1FACD21CB4694F00E5B119 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACCC1CB4694F00E5B119 /* Property.m */; };
+		FC1FACD31CB4694F00E5B119 /* Room+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACCE1CB4694F00E5B119 /* Room+CoreDataProperties.m */; };
+		FC1FACD41CB4694F00E5B119 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACD01CB4694F00E5B119 /* Room.m */; };
+		FC1FACD61CB46C9000E5B119 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1FACD51CB46C9000E5B119 /* CoreLocation.framework */; };
 		FCC383E71CB40EC000E40EE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383E61CB40EC000E40EE1 /* main.m */; };
 		FCC383EA1CB40EC000E40EE1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383E91CB40EC000E40EE1 /* AppDelegate.m */; };
 		FCC383ED1CB40EC000E40EE1 /* Entangled.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCC383EB1CB40EC000E40EE1 /* Entangled.xcdatamodeld */; };
@@ -16,12 +23,6 @@
 		FCC383F81CB40EC000E40EE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCC383F71CB40EC000E40EE1 /* Assets.xcassets */; };
 		FCC383FB1CB40EC000E40EE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC383F91CB40EC000E40EE1 /* LaunchScreen.storyboard */; };
 		FCC384061CB40EC000E40EE1 /* EntangledTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC384051CB40EC000E40EE1 /* EntangledTests.m */; };
-		FCC384141CB41F0300E40EE1 /* Room+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC384111CB41F0300E40EE1 /* Room+CoreDataProperties.m */; };
-		FCC384151CB41F0300E40EE1 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC384131CB41F0300E40EE1 /* Room.m */; };
-		FCC3841B1CB41FA500E40EE1 /* Property+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC384181CB41FA500E40EE1 /* Property+CoreDataProperties.m */; };
-		FCC3841C1CB41FA500E40EE1 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC3841A1CB41FA500E40EE1 /* Property.m */; };
-		FCC384211CB41FC200E40EE1 /* Items+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC3841E1CB41FC200E40EE1 /* Items+CoreDataProperties.m */; };
-		FCC384221CB41FC200E40EE1 /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC384201CB41FC200E40EE1 /* Items.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC1FACC31CB4693100E5B119 /* Items+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Items+CoreDataProperties.h"; path = "Model/Items+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FC1FACC41CB4693100E5B119 /* Items+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Items+CoreDataProperties.m"; path = "Model/Items+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FC1FACC51CB4693100E5B119 /* Items.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Items.h; path = Model/Items.h; sourceTree = "<group>"; };
+		FC1FACC61CB4693100E5B119 /* Items.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Items.m; path = Model/Items.m; sourceTree = "<group>"; };
+		FC1FACC91CB4694F00E5B119 /* Property+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Property+CoreDataProperties.h"; path = "Model/Property+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FC1FACCA1CB4694F00E5B119 /* Property+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Property+CoreDataProperties.m"; path = "Model/Property+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FC1FACCB1CB4694F00E5B119 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Property.h; path = Model/Property.h; sourceTree = "<group>"; };
+		FC1FACCC1CB4694F00E5B119 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Property.m; path = Model/Property.m; sourceTree = "<group>"; };
+		FC1FACCD1CB4694F00E5B119 /* Room+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Room+CoreDataProperties.h"; path = "Model/Room+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FC1FACCE1CB4694F00E5B119 /* Room+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Room+CoreDataProperties.m"; path = "Model/Room+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FC1FACCF1CB4694F00E5B119 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Room.h; path = Model/Room.h; sourceTree = "<group>"; };
+		FC1FACD01CB4694F00E5B119 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Room.m; path = Model/Room.m; sourceTree = "<group>"; };
+		FC1FACD51CB46C9000E5B119 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FCC383E21CB40EC000E40EE1 /* Entangled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Entangled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC383E61CB40EC000E40EE1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FCC383E81CB40EC000E40EE1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,18 +65,6 @@
 		FCC384011CB40EC000E40EE1 /* EntangledTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntangledTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC384051CB40EC000E40EE1 /* EntangledTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntangledTests.m; sourceTree = "<group>"; };
 		FCC384071CB40EC000E40EE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FCC384101CB41F0300E40EE1 /* Room+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Room+CoreDataProperties.h"; path = "Model/Room+CoreDataProperties.h"; sourceTree = "<group>"; };
-		FCC384111CB41F0300E40EE1 /* Room+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Room+CoreDataProperties.m"; path = "Model/Room+CoreDataProperties.m"; sourceTree = "<group>"; };
-		FCC384121CB41F0300E40EE1 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Room.h; path = Model/Room.h; sourceTree = "<group>"; };
-		FCC384131CB41F0300E40EE1 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Room.m; path = Model/Room.m; sourceTree = "<group>"; };
-		FCC384171CB41FA500E40EE1 /* Property+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Property+CoreDataProperties.h"; path = "Model/Property+CoreDataProperties.h"; sourceTree = "<group>"; };
-		FCC384181CB41FA500E40EE1 /* Property+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Property+CoreDataProperties.m"; path = "Model/Property+CoreDataProperties.m"; sourceTree = "<group>"; };
-		FCC384191CB41FA500E40EE1 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Property.h; path = Model/Property.h; sourceTree = "<group>"; };
-		FCC3841A1CB41FA500E40EE1 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Property.m; path = Model/Property.m; sourceTree = "<group>"; };
-		FCC3841D1CB41FC200E40EE1 /* Items+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Items+CoreDataProperties.h"; path = "Model/Items+CoreDataProperties.h"; sourceTree = "<group>"; };
-		FCC3841E1CB41FC200E40EE1 /* Items+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Items+CoreDataProperties.m"; path = "Model/Items+CoreDataProperties.m"; sourceTree = "<group>"; };
-		FCC3841F1CB41FC200E40EE1 /* Items.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Items.h; path = Model/Items.h; sourceTree = "<group>"; };
-		FCC384201CB41FC200E40EE1 /* Items.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Items.m; path = Model/Items.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC1FACD61CB46C9000E5B119 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,12 +86,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC1FACD71CB46CE000E5B119 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				FC1FACD51CB46C9000E5B119 /* CoreLocation.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
 		FCC383D91CB40EC000E40EE1 = {
 			isa = PBXGroup;
 			children = (
 				FCC383E41CB40EC000E40EE1 /* Entangled */,
 				FCC384041CB40EC000E40EE1 /* EntangledTests */,
 				FCC383E31CB40EC000E40EE1 /* Products */,
+				FC1FACD71CB46CE000E5B119 /* Framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,18 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				FCC384231CB422D400E40EE1 /* Generated */,
-				FCC3841D1CB41FC200E40EE1 /* Items+CoreDataProperties.h */,
-				FCC3841E1CB41FC200E40EE1 /* Items+CoreDataProperties.m */,
-				FCC3841F1CB41FC200E40EE1 /* Items.h */,
-				FCC384201CB41FC200E40EE1 /* Items.m */,
-				FCC384171CB41FA500E40EE1 /* Property+CoreDataProperties.h */,
-				FCC384181CB41FA500E40EE1 /* Property+CoreDataProperties.m */,
-				FCC384191CB41FA500E40EE1 /* Property.h */,
-				FCC3841A1CB41FA500E40EE1 /* Property.m */,
-				FCC384101CB41F0300E40EE1 /* Room+CoreDataProperties.h */,
-				FCC384111CB41F0300E40EE1 /* Room+CoreDataProperties.m */,
-				FCC384121CB41F0300E40EE1 /* Room.h */,
-				FCC384131CB41F0300E40EE1 /* Room.m */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -157,6 +157,18 @@
 		FCC384231CB422D400E40EE1 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				FC1FACC91CB4694F00E5B119 /* Property+CoreDataProperties.h */,
+				FC1FACCA1CB4694F00E5B119 /* Property+CoreDataProperties.m */,
+				FC1FACCB1CB4694F00E5B119 /* Property.h */,
+				FC1FACCC1CB4694F00E5B119 /* Property.m */,
+				FC1FACCD1CB4694F00E5B119 /* Room+CoreDataProperties.h */,
+				FC1FACCE1CB4694F00E5B119 /* Room+CoreDataProperties.m */,
+				FC1FACCF1CB4694F00E5B119 /* Room.h */,
+				FC1FACD01CB4694F00E5B119 /* Room.m */,
+				FC1FACC31CB4693100E5B119 /* Items+CoreDataProperties.h */,
+				FC1FACC41CB4693100E5B119 /* Items+CoreDataProperties.m */,
+				FC1FACC51CB4693100E5B119 /* Items.h */,
+				FC1FACC61CB4693100E5B119 /* Items.m */,
 			);
 			name = Generated;
 			sourceTree = "<group>";
@@ -284,17 +296,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCC384221CB41FC200E40EE1 /* Items.m in Sources */,
-				FCC384211CB41FC200E40EE1 /* Items+CoreDataProperties.m in Sources */,
-				FCC3841B1CB41FA500E40EE1 /* Property+CoreDataProperties.m in Sources */,
-				FCC384141CB41F0300E40EE1 /* Room+CoreDataProperties.m in Sources */,
+				FC1FACD41CB4694F00E5B119 /* Room.m in Sources */,
+				FC1FACD31CB4694F00E5B119 /* Room+CoreDataProperties.m in Sources */,
+				FC1FACD11CB4694F00E5B119 /* Property+CoreDataProperties.m in Sources */,
+				FC1FACC71CB4693100E5B119 /* Items+CoreDataProperties.m in Sources */,
 				FCC383F31CB40EC000E40EE1 /* PropertyViewController.m in Sources */,
 				FCC383F01CB40EC000E40EE1 /* PropertyTableViewController.m in Sources */,
 				FCC383EA1CB40EC000E40EE1 /* AppDelegate.m in Sources */,
 				FCC383ED1CB40EC000E40EE1 /* Entangled.xcdatamodeld in Sources */,
-				FCC384151CB41F0300E40EE1 /* Room.m in Sources */,
+				FC1FACC81CB4693100E5B119 /* Items.m in Sources */,
 				FCC383E71CB40EC000E40EE1 /* main.m in Sources */,
-				FCC3841C1CB41FA500E40EE1 /* Property.m in Sources */,
+				FC1FACD21CB4694F00E5B119 /* Property.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +499,7 @@
 				FCC3840C1CB40EC000E40EE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FCC3840D1CB40EC000E40EE1 /* Build configuration list for PBXNativeTarget "EntangledTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +508,7 @@
 				FCC3840F1CB40EC000E40EE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

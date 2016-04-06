@@ -13,11 +13,13 @@
 
 @implementation Property (CoreDataProperties)
 
-@dynamic timeStamp;
-@dynamic propertyName;
 @dynamic buildingValue;
 @dynamic currency;
 @dynamic fullAddress;
+@dynamic propertyName;
+@dynamic timeStamp;
+@dynamic locationLatitude;
+@dynamic locationLongitude;
 @dynamic rooms;
 
 @end

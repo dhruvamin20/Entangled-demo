@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Property;
 
 @interface PropertyViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) Property *detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @end

@@ -15,11 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Property (CoreDataProperties)
 
-@property (nonatomic) NSDate *timeStamp;
-@property (nullable, nonatomic, retain) NSString *propertyName;
 @property (nullable, nonatomic, retain) NSDecimalNumber *buildingValue;
 @property (nullable, nonatomic, retain) NSDecimalNumber *currency;
 @property (nullable, nonatomic, retain) NSString *fullAddress;
+@property (nullable, nonatomic, retain) NSString *propertyName;
+@property (nonatomic) NSDate *timeStamp;
+@property (nonatomic) NSNumber *locationLatitude;
+@property (nonatomic) NSNumber *locationLongitude;
 @property (nullable, nonatomic, retain) NSSet<Room *> *rooms;
 
 @end

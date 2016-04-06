@@ -14,9 +14,9 @@
 @implementation Room (CoreDataProperties)
 
 @dynamic name;
-@dynamic roomValue;
 @dynamic roomImage;
-@dynamic property;
+@dynamic roomValue;
 @dynamic items;
+@dynamic property;
 
 @end

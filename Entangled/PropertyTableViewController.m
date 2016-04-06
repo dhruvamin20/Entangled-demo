@@ -8,9 +8,14 @@
 
 #import "PropertyTableViewController.h"
 #import "PropertyViewController.h"
-#import "Property+CoreDataProperties.h"
+#import "Property.h"
+#import "AppDelegate.h"
+
 
 @interface PropertyTableViewController ()
+
+@property (nonatomic) CLLocation *propertyLocation;
+
 
 @end
 
@@ -24,6 +29,9 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (PropertyViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    ((AppDelegate*)[UIApplication sharedApplication].delegate).locationManager.delegate = self;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -39,12 +47,18 @@
 - (void)insertNewObject:(id)sender {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    Property *newProperty = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
         
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
-    [newManagedObject setValue:@"Home 2016" forKey:@"propertyName"];
+    newProperty.propertyName = @"Home 2016";
+    newProperty.timeStamp = [NSDate date];
+    
+    newProperty.locationLatitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.latitude];
+    newProperty.locationLongitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.longitude];
+    
+    NSLog(@"lat:%@ | lng: %@", newProperty.locationLatitude, newProperty.locationLongitude);
+
         
     // Save the context.
     NSError *error = nil;
@@ -56,14 +70,29 @@
     }
 }
 
+#pragma mark - Location Manager Delegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    
+    self.propertyLocation = [locations lastObject];
+    NSLog(@"Current location %@", self.propertyLocation);
+    [manager stopUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"Location manager error %@", [error localizedDescription]);
+}
+
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        Property *currentProperty = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         PropertyViewController *controller = (PropertyViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
+        controller.detailItem = currentProperty;
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
@@ -82,8 +111,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    [self configureCell:cell withObject:object];
+//    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
@@ -107,10 +136,15 @@
     }
 }
 
-- (void)configureCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object {
-    cell.textLabel.text = [[object valueForKey:@"propertyName"] description];
-    cell.detailTextLabel.text = [[object valueForKey:@"timeStamp"] description];
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    Property *property = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = property.propertyName;
+    
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    cell.detailTextLabel.text = [dateFormatter stringFromDate:property.timeStamp];
 }
+
 
 #pragma mark - Fetched results controller
 
@@ -135,7 +169,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -188,7 +222,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] withObject:anObject];
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:
