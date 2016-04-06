@@ -9,14 +9,13 @@
 /* Begin PBXBuildFile section */
 		FC1FACC71CB4693100E5B119 /* Items+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACC41CB4693100E5B119 /* Items+CoreDataProperties.m */; };
 		FC1FACC81CB4693100E5B119 /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACC61CB4693100E5B119 /* Items.m */; };
-		FC1FACD11CB4694F00E5B119 /* Property+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACCA1CB4694F00E5B119 /* Property+CoreDataProperties.m */; };
 		FC1FACD21CB4694F00E5B119 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACCC1CB4694F00E5B119 /* Property.m */; };
 		FC1FACD31CB4694F00E5B119 /* Room+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACCE1CB4694F00E5B119 /* Room+CoreDataProperties.m */; };
 		FC1FACD41CB4694F00E5B119 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACD01CB4694F00E5B119 /* Room.m */; };
 		FC1FACD61CB46C9000E5B119 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1FACD51CB46C9000E5B119 /* CoreLocation.framework */; };
 		FC32D1061CB5AF8B0087614E /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC32D1051CB5AF8B0087614E /* SearchTableViewController.m */; };
+		FC32D1091CB5BA6F0087614E /* Property+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FC32D1081CB5BA6F0087614E /* Property+CoreDataProperties.m */; };
 		FCBFBF4C1CB5625E00EDD78E /* PropertyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBFBF4B1CB5625E00EDD78E /* PropertyTableViewCell.m */; };
-		FCBFBF561CB58E7600EDD78E /* PropertyEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBFBF551CB58E7600EDD78E /* PropertyEditViewController.m */; };
 		FCC383E71CB40EC000E40EE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383E61CB40EC000E40EE1 /* main.m */; };
 		FCC383EA1CB40EC000E40EE1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383E91CB40EC000E40EE1 /* AppDelegate.m */; };
 		FCC383ED1CB40EC000E40EE1 /* Entangled.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCC383EB1CB40EC000E40EE1 /* Entangled.xcdatamodeld */; };
@@ -43,8 +42,6 @@
 		FC1FACC41CB4693100E5B119 /* Items+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Items+CoreDataProperties.m"; path = "Model/Items+CoreDataProperties.m"; sourceTree = "<group>"; };
 		FC1FACC51CB4693100E5B119 /* Items.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Items.h; path = Model/Items.h; sourceTree = "<group>"; };
 		FC1FACC61CB4693100E5B119 /* Items.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Items.m; path = Model/Items.m; sourceTree = "<group>"; };
-		FC1FACC91CB4694F00E5B119 /* Property+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Property+CoreDataProperties.h"; path = "Model/Property+CoreDataProperties.h"; sourceTree = "<group>"; };
-		FC1FACCA1CB4694F00E5B119 /* Property+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Property+CoreDataProperties.m"; path = "Model/Property+CoreDataProperties.m"; sourceTree = "<group>"; };
 		FC1FACCB1CB4694F00E5B119 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Property.h; path = Model/Property.h; sourceTree = "<group>"; };
 		FC1FACCC1CB4694F00E5B119 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Property.m; path = Model/Property.m; sourceTree = "<group>"; };
 		FC1FACCD1CB4694F00E5B119 /* Room+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Room+CoreDataProperties.h"; path = "Model/Room+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -54,10 +51,10 @@
 		FC1FACD51CB46C9000E5B119 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FC32D1041CB5AF8B0087614E /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTableViewController.h; path = ViewControllers/SearchTableViewController.h; sourceTree = "<group>"; };
 		FC32D1051CB5AF8B0087614E /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTableViewController.m; path = ViewControllers/SearchTableViewController.m; sourceTree = "<group>"; };
+		FC32D1071CB5BA6F0087614E /* Property+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Property+CoreDataProperties.h"; path = "Model/Property+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FC32D1081CB5BA6F0087614E /* Property+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Property+CoreDataProperties.m"; path = "Model/Property+CoreDataProperties.m"; sourceTree = "<group>"; };
 		FCBFBF4A1CB5625E00EDD78E /* PropertyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PropertyTableViewCell.h; path = "Entangled/Custom Cells/PropertyTableViewCell.h"; sourceTree = "<group>"; };
 		FCBFBF4B1CB5625E00EDD78E /* PropertyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PropertyTableViewCell.m; path = "Entangled/Custom Cells/PropertyTableViewCell.m"; sourceTree = "<group>"; };
-		FCBFBF541CB58E7600EDD78E /* PropertyEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PropertyEditViewController.h; path = ViewControllers/PropertyEditViewController.h; sourceTree = "<group>"; };
-		FCBFBF551CB58E7600EDD78E /* PropertyEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PropertyEditViewController.m; path = ViewControllers/PropertyEditViewController.m; sourceTree = "<group>"; };
 		FCC383E21CB40EC000E40EE1 /* Entangled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Entangled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC383E61CB40EC000E40EE1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FCC383E81CB40EC000E40EE1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -177,8 +174,8 @@
 		FCC384231CB422D400E40EE1 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				FC1FACC91CB4694F00E5B119 /* Property+CoreDataProperties.h */,
-				FC1FACCA1CB4694F00E5B119 /* Property+CoreDataProperties.m */,
+				FC32D1071CB5BA6F0087614E /* Property+CoreDataProperties.h */,
+				FC32D1081CB5BA6F0087614E /* Property+CoreDataProperties.m */,
 				FC1FACCB1CB4694F00E5B119 /* Property.h */,
 				FC1FACCC1CB4694F00E5B119 /* Property.m */,
 				FC1FACCD1CB4694F00E5B119 /* Room+CoreDataProperties.h */,
@@ -210,8 +207,6 @@
 				FCC383EF1CB40EC000E40EE1 /* PropertyTableViewController.m */,
 				FCC383F11CB40EC000E40EE1 /* PropertyViewController.h */,
 				FCC383F21CB40EC000E40EE1 /* PropertyViewController.m */,
-				FCBFBF541CB58E7600EDD78E /* PropertyEditViewController.h */,
-				FCBFBF551CB58E7600EDD78E /* PropertyEditViewController.m */,
 				FC32D1041CB5AF8B0087614E /* SearchTableViewController.h */,
 				FC32D1051CB5AF8B0087614E /* SearchTableViewController.m */,
 			);
@@ -322,8 +317,6 @@
 			files = (
 				FC1FACD41CB4694F00E5B119 /* Room.m in Sources */,
 				FC1FACD31CB4694F00E5B119 /* Room+CoreDataProperties.m in Sources */,
-				FCBFBF561CB58E7600EDD78E /* PropertyEditViewController.m in Sources */,
-				FC1FACD11CB4694F00E5B119 /* Property+CoreDataProperties.m in Sources */,
 				FC1FACC71CB4693100E5B119 /* Items+CoreDataProperties.m in Sources */,
 				FCC383F31CB40EC000E40EE1 /* PropertyViewController.m in Sources */,
 				FCC383F01CB40EC000E40EE1 /* PropertyTableViewController.m in Sources */,
@@ -333,6 +326,7 @@
 				FC1FACC81CB4693100E5B119 /* Items.m in Sources */,
 				FCC383E71CB40EC000E40EE1 /* main.m in Sources */,
 				FCBFBF4C1CB5625E00EDD78E /* PropertyTableViewCell.m in Sources */,
+				FC32D1091CB5BA6F0087614E /* Property+CoreDataProperties.m in Sources */,
 				FC1FACD21CB4694F00E5B119 /* Property.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,7 +2,7 @@
 //  Property+CoreDataProperties.h
 //  Entangled
 //
-//  Created by Dhruv Amin on 2016-04-05.
+//  Created by Dhruv Amin on 2016-04-06.
 //  Copyright © 2016 Spartans. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -18,10 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSDecimalNumber *buildingValue;
 @property (nullable, nonatomic, retain) NSDecimalNumber *currency;
 @property (nullable, nonatomic, retain) NSString *fullAddress;
+@property (nullable, nonatomic, retain) NSNumber *locationLatitude;
+@property (nullable, nonatomic, retain) NSNumber *locationLongitude;
 @property (nullable, nonatomic, retain) NSString *propertyName;
-@property (nonatomic) NSDate *timeStamp;
-@property (nonatomic) NSNumber *locationLatitude;
-@property (nonatomic) NSNumber *locationLongitude;
+@property (nullable, nonatomic, retain) NSDate *timeStamp;
+@property (nullable, nonatomic, retain) NSString *notes;
 @property (nullable, nonatomic, retain) NSSet<Room *> *rooms;
 
 @end

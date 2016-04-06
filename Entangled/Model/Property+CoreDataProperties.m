@@ -2,7 +2,7 @@
 //  Property+CoreDataProperties.m
 //  Entangled
 //
-//  Created by Dhruv Amin on 2016-04-05.
+//  Created by Dhruv Amin on 2016-04-06.
 //  Copyright © 2016 Spartans. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,10 +16,11 @@
 @dynamic buildingValue;
 @dynamic currency;
 @dynamic fullAddress;
-@dynamic propertyName;
-@dynamic timeStamp;
 @dynamic locationLatitude;
 @dynamic locationLongitude;
+@dynamic propertyName;
+@dynamic timeStamp;
+@dynamic notes;
 @dynamic rooms;
 
 @end
