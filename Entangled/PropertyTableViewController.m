@@ -10,6 +10,7 @@
 #import "PropertyViewController.h"
 #import "Property.h"
 #import "AppDelegate.h"
+#import "PropertyTableViewCell.h"
 
 
 @interface PropertyTableViewController ()
@@ -110,7 +111,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    PropertyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 //    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
@@ -136,13 +137,13 @@
     }
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(PropertyTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Property *property = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = property.propertyName;
+    cell.titleLabel.text = property.propertyName;
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
-    cell.detailTextLabel.text = [dateFormatter stringFromDate:property.timeStamp];
+    cell.detailLabel.text = [dateFormatter stringFromDate:property.timeStamp];
 }
 
 

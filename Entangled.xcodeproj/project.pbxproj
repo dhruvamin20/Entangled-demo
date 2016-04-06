@@ -14,6 +14,7 @@
 		FC1FACD31CB4694F00E5B119 /* Room+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACCE1CB4694F00E5B119 /* Room+CoreDataProperties.m */; };
 		FC1FACD41CB4694F00E5B119 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1FACD01CB4694F00E5B119 /* Room.m */; };
 		FC1FACD61CB46C9000E5B119 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1FACD51CB46C9000E5B119 /* CoreLocation.framework */; };
+		FCBFBF4C1CB5625E00EDD78E /* PropertyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBFBF4B1CB5625E00EDD78E /* PropertyTableViewCell.m */; };
 		FCC383E71CB40EC000E40EE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383E61CB40EC000E40EE1 /* main.m */; };
 		FCC383EA1CB40EC000E40EE1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383E91CB40EC000E40EE1 /* AppDelegate.m */; };
 		FCC383ED1CB40EC000E40EE1 /* Entangled.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCC383EB1CB40EC000E40EE1 /* Entangled.xcdatamodeld */; };
@@ -49,6 +50,8 @@
 		FC1FACCF1CB4694F00E5B119 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Room.h; path = Model/Room.h; sourceTree = "<group>"; };
 		FC1FACD01CB4694F00E5B119 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Room.m; path = Model/Room.m; sourceTree = "<group>"; };
 		FC1FACD51CB46C9000E5B119 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FCBFBF4A1CB5625E00EDD78E /* PropertyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PropertyTableViewCell.h; path = "Entangled/Custom Cells/PropertyTableViewCell.h"; sourceTree = "<group>"; };
+		FCBFBF4B1CB5625E00EDD78E /* PropertyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PropertyTableViewCell.m; path = "Entangled/Custom Cells/PropertyTableViewCell.m"; sourceTree = "<group>"; };
 		FCC383E21CB40EC000E40EE1 /* Entangled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Entangled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC383E61CB40EC000E40EE1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FCC383E81CB40EC000E40EE1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,6 +97,16 @@
 			name = Framework;
 			sourceTree = "<group>";
 		};
+		FCBFBF4D1CB5626800EDD78E /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FCBFBF4A1CB5625E00EDD78E /* PropertyTableViewCell.h */,
+				FCBFBF4B1CB5625E00EDD78E /* PropertyTableViewCell.m */,
+			);
+			name = "Custom Cells";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		FCC383D91CB40EC000E40EE1 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +131,7 @@
 			children = (
 				FCC384251CB424BE00E40EE1 /* ViewControllers */,
 				FCC384241CB4245F00E40EE1 /* Storyboard */,
+				FCBFBF4D1CB5626800EDD78E /* Custom Cells */,
 				FCC384161CB41F5800E40EE1 /* Data Model */,
 				FCC383EB1CB40EC000E40EE1 /* Entangled.xcdatamodeld */,
 				FCC383E51CB40EC000E40EE1 /* Supporting Files */,
@@ -306,6 +320,7 @@
 				FCC383ED1CB40EC000E40EE1 /* Entangled.xcdatamodeld in Sources */,
 				FC1FACC81CB4693100E5B119 /* Items.m in Sources */,
 				FCC383E71CB40EC000E40EE1 /* main.m in Sources */,
+				FCBFBF4C1CB5625E00EDD78E /* PropertyTableViewCell.m in Sources */,
 				FC1FACD21CB4694F00E5B119 /* Property.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
