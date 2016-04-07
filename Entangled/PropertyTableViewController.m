@@ -11,11 +11,13 @@
 #import "Property.h"
 #import "AppDelegate.h"
 #import "PropertyTableViewCell.h"
+#import "PropertyEditTableViewController.h"
 
 
-@interface PropertyTableViewController ()
+@interface PropertyTableViewController () <AddNewProperty>
 
 @property (nonatomic) CLLocation *propertyLocation;
+@property (nonatomic) NSString *propertyAddress;
 
 
 @end
@@ -46,21 +48,25 @@
 }
 
 - (void)insertNewObject:(id)sender {
+    [self performSegueWithIdentifier:@"newProperty" sender:self];
+    }
+
+-(void)addWithTitle:(NSString*)title detailText:(NSString*)detail {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     Property *newProperty = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-        
+    
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    newProperty.propertyName = @"Home 2016";
-    newProperty.timeStamp = [NSDate date];
+    newProperty.propertyName = title;
+    newProperty.notes = detail;
     
     newProperty.locationLatitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.latitude];
     newProperty.locationLongitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.longitude];
     
     NSLog(@"lat:%@ | lng: %@", newProperty.locationLatitude, newProperty.locationLongitude);
-
-        
+    
+    
     // Save the context.
     NSError *error = nil;
     if (![context save:&error]) {
@@ -69,15 +75,33 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+
+    
 }
 
 #pragma mark - Location Manager Delegate
+
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     
     self.propertyLocation = [locations lastObject];
     NSLog(@"Current location %@", self.propertyLocation);
     [manager stopUpdatingLocation];
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:[locations lastObject] completionHandler:^(NSArray *placemarks, NSError *error)
+     {
+         if (!(error))
+         {
+             CLPlacemark *placemark = [placemarks lastObject];
+             self.propertyAddress = [placemark.addressDictionary[@"FormattedAddressLines"] componentsJoinedByString:@", "];
+             //NSLog(@"Geocode addr: %@", self.propertyAddress);
+             
+         } else {
+             NSLog(@"Geocoder failed with error %@", [error localizedDescription]);
+         }
+     }];
+    
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -85,18 +109,21 @@
     NSLog(@"Location manager error %@", [error localizedDescription]);
 }
 
-
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Property *currentProperty = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        PropertyViewController *controller = (PropertyViewController *)[[segue destinationViewController] topViewController];
+        PropertyViewController *controller = (PropertyViewController *)segue.destinationViewController;
         controller.detailItem = currentProperty;
-        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-        controller.navigationItem.leftItemsSupplementBackButton = YES;
+      controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+      controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
+    if ([segue.identifier isEqualToString:@"newProperty"]) {
+        [segue.destinationViewController setDelegate:self];
+    }
+
 }
 
 #pragma mark - Table View
@@ -141,9 +168,9 @@
     Property *property = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.titleLabel.text = property.propertyName;
     
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
-    cell.detailLabel.text = [dateFormatter stringFromDate:property.timeStamp];
+//    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    cell.detailLabel.text = property.notes;
 }
 
 
@@ -236,7 +263,6 @@
 {
     [self.tableView endUpdates];
 }
-
 /*
 // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
  

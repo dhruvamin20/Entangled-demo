@@ -19,13 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-    splitViewController.delegate = self;
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
 
-    UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-    PropertyTableViewController *controller = (PropertyTableViewController *)masterNavigationController.topViewController;
+//    UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
+    PropertyTableViewController *controller = (PropertyTableViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -61,15 +58,15 @@
 
 #pragma mark - Split view
 
-- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
-    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[PropertyViewController class]] &&
-        ([(PropertyViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
-        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-        return YES;
-    } else {
-        return NO;
-    }
-}
+//- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
+//    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[PropertyViewController class]] &&
+//        ([(PropertyViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
+//        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+//        return YES;
+//    } else {
+//        return NO;
+//    }
+//}
 
 #pragma mark - Core Data stack
 
