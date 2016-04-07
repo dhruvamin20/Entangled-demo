@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Items;
 
 @interface PropertyTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+@property (nonatomic) Items *item;
+
 
 @end

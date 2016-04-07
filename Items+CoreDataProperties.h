@@ -2,7 +2,7 @@
 //  Items+CoreDataProperties.h
 //  Entangled
 //
-//  Created by Dhruv Amin on 2016-04-05.
+//  Created by Dhruv Amin on 2016-04-07.
 //  Copyright © 2016 Spartans. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -18,10 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *itemDescription;
 @property (nullable, nonatomic, retain) NSData *itemImage;
 @property (nullable, nonatomic, retain) NSDecimalNumber *itemValue;
-@property (nonatomic) NSTimeInterval purchaseDate;
+@property (nonatomic) NSDate *purchaseDate;
 @property (nonatomic) int16_t quantity;
-@property (nullable, nonatomic, retain) NSData *receiptImage;
-@property (nullable, nonatomic, retain) Room *roomItems;
+@property (nullable, nonatomic, retain) NSString *itemName;
+@property (nonatomic) NSDate *timeStamp;
 
 @end
 

@@ -18,16 +18,16 @@
 
 // @property (strong, nonatomic) Property *property;
 
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextView *noteTextView;
-@property (weak, nonatomic) IBOutlet UILabel *timeStampLabel;
-@property (weak, nonatomic) IBOutlet UITextView *locationTextView;
-@property (weak, nonatomic) IBOutlet UITextField *buildingValueTextField;
-
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *emailBarButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *reminderBarButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *airDropBarButton;
+//@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+//@property (weak, nonatomic) IBOutlet UITextView *noteTextView;
+//@property (weak, nonatomic) IBOutlet UILabel *timeStampLabel;
+//@property (weak, nonatomic) IBOutlet UITextView *locationTextView;
+//@property (weak, nonatomic) IBOutlet UITextField *buildingValueTextField;
+//
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButton;
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *emailBarButton;
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *reminderBarButton;
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *airDropBarButton;
 
 @property (weak, nonatomic) id <AddNewProperty>delegate;
 @property (nonatomic) NSManagedObjectContext *managedObjectContext;

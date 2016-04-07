@@ -1,19 +1,17 @@
 //
-//  Room.h
+//  Items.h
 //  Entangled
 //
-//  Created by Dhruv Amin on 2016-04-05.
+//  Created by Dhruv Amin on 2016-04-07.
 //  Copyright © 2016 Spartans. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Items, Property;
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Room : NSManagedObject
+@interface Items : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -21,4 +19,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "Room+CoreDataProperties.h"
+#import "Items+CoreDataProperties.h"

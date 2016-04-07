@@ -2,7 +2,7 @@
 //  Items+CoreDataProperties.m
 //  Entangled
 //
-//  Created by Dhruv Amin on 2016-04-05.
+//  Created by Dhruv Amin on 2016-04-07.
 //  Copyright © 2016 Spartans. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -18,7 +18,7 @@
 @dynamic itemValue;
 @dynamic purchaseDate;
 @dynamic quantity;
-@dynamic receiptImage;
-@dynamic roomItems;
+@dynamic itemName;
+@dynamic timeStamp;
 
 @end

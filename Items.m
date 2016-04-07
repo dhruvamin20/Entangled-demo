@@ -1,16 +1,14 @@
 //
-//  Room.m
+//  Items.m
 //  Entangled
 //
-//  Created by Dhruv Amin on 2016-04-05.
+//  Created by Dhruv Amin on 2016-04-07.
 //  Copyright © 2016 Spartans. All rights reserved.
 //
 
-#import "Room.h"
 #import "Items.h"
-#import "Property.h"
 
-@implementation Room
+@implementation Items
 
 // Insert code here to add functionality to your managed object subclass
 

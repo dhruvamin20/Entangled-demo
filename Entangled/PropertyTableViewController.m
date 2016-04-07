@@ -8,8 +8,7 @@
 
 #import "PropertyTableViewController.h"
 #import "PropertyViewController.h"
-#import "Property.h"
-#import "AppDelegate.h"
+#import "Items.h"
 #import "PropertyTableViewCell.h"
 #import "PropertyEditTableViewController.h"
 
@@ -53,35 +52,35 @@
     [self performSegueWithIdentifier:@"newProperty" sender:self];
 }
 
--(void)addWithTitle:(NSString*)title detailText:(NSString*)detail timeStamp:(NSDate *)timeStamp buildingValue:(NSDecimalNumber *)value {
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    Property *newProperty = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    newProperty.propertyName = title;
-    newProperty.notes = detail;
-    newProperty.timeStamp = timeStamp;
-    newProperty.buildingValue = value;
-    
-    newProperty.locationLatitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.latitude];
-    newProperty.locationLongitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.longitude];
-    
-    NSLog(@"lat:%@ | lng: %@", newProperty.locationLatitude, newProperty.locationLongitude);
-    
-    
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    
-}
+//-(void)addWithTitle:(NSString*)title detailText:(NSString*)detail timeStamp:(NSDate *)timeStamp buildingValue:(NSDecimalNumber *)value {
+//    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+//    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+//    Property *newProperty = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+//    
+//    // If appropriate, configure the new managed object.
+//    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
+//    newProperty.propertyName = title;
+//    newProperty.notes = detail;
+//    newProperty.timeStamp = timeStamp;
+//    newProperty.buildingValue = value;
+//    
+//    newProperty.locationLatitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.latitude];
+//    newProperty.locationLongitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.longitude];
+//    
+//    NSLog(@"lat:%@ | lng: %@", newProperty.locationLatitude, newProperty.locationLongitude);
+//    
+//    
+//    // Save the context.
+//    NSError *error = nil;
+//    if (![context save:&error]) {
+//        // Replace this implementation with code to handle the error appropriately.
+//        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//        abort();
+//    }
+//    
+//    
+//}
 
 #pragma mark - Location Manager Delegate
 
@@ -147,8 +146,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PropertyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    //    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    [self configureCell:cell atIndexPath:indexPath];
+    Items *item = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    cell.item = item;
     return cell;
 }
 
@@ -172,15 +171,6 @@
     }
 }
 
-- (void)configureCell:(PropertyTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    Property *property = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.titleLabel.text = property.propertyName;
-    
-    //    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    //    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
-    cell.detailLabel.text = property.notes;
-}
-
 
 #pragma mark - Fetched results controller
 
@@ -192,7 +182,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Property" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
@@ -211,8 +201,6 @@
     
     NSError *error = nil;
     if (![self.fetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }

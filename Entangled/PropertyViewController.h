@@ -7,22 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Property;
+@class Items;
 
-@interface PropertyViewController : UIViewController
+@interface PropertyViewController : UITableViewController
 
-@property (strong, nonatomic) Property *detailItem;
+@property (strong, nonatomic) Items *detailItem;
 
 
-@property (weak, nonatomic) IBOutlet UILabel *propertyNameLabel;
 
-@property (weak, nonatomic) IBOutlet UITextView *textViewNote;
-
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-
-@property (weak, nonatomic) IBOutlet UITextView *locationView;
-
-@property (weak, nonatomic) IBOutlet UILabel *buildingValueLabel;
 
 @end
 

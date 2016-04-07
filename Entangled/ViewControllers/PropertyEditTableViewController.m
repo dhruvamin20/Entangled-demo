@@ -9,12 +9,19 @@
 #import "PropertyEditTableViewController.h"
 #import <MessageUI/MessageUI.h>
 #import "AppDelegate.h"
-#import "Property.h"
-#import "Room.h"
+#import "Items.h"
 
 
-@interface PropertyEditTableViewController ()
+@interface PropertyEditTableViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic) NSDate *timeStamp;
+@property (weak, nonatomic) IBOutlet UITextField *name;
+@property (weak, nonatomic) IBOutlet UITextView *descr;
+@property (weak, nonatomic) IBOutlet UITextField *value;
+@property (weak, nonatomic) IBOutlet UITextField *purchaseDate;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *timeStampLabel;
+
+
 @end
 
 @implementation PropertyEditTableViewController
@@ -23,103 +30,89 @@
     [super viewDidLoad];
     self.timeStamp = [NSDate date];
     [self configureView];
-    
-    
-    
-    UITapGestureRecognizer *backgroundTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlebackgroundTap:)];
-    [self.view addGestureRecognizer:backgroundTap];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-//
-//- (void)setProperty:(id)newProperty {
-//    
-//    if (_property != newProperty) {
-//        _property = newProperty;
-//        
-//        // Update the view.
-//        [self configureView];
-//    }
-//}
--(void)insertNewObject {
-       Property *newProperty = [NSEntityDescription insertNewObjectForEntityForName:@"Property" inManagedObjectContext:self.managedObjectContext];
-
-    newProperty.timeStamp = self.timeStamp;
-    newProperty.propertyName = self.nameTextField.text;
-    newProperty.notes = self.noteTextView.text;
-    NSDecimalNumber *dn = [[NSDecimalNumber alloc] initWithString:self.buildingValueTextField.text];
-    newProperty.buildingValue = dn;
+- (IBAction)save:(UIBarButtonItem *)sender {
+    [self insertNewObject];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+- (IBAction)cameraTapped:(UIBarButtonItem *)sender {
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        return;
+    }
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.delegate = self;
+    NSArray *sourceTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+    NSLog(@"%@", sourceTypes);
+    ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+    ipc.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:
+                      UIImagePickerControllerSourceTypeCamera];
+    [self presentViewController:ipc animated:YES completion:nil];
     
-//    newProperty.locationLatitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.latitude];
-//    newProperty.locationLongitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.longitude];
-//    NSLog(@"Property lat: %@ | lng: %@", newProperty.locationLatitude, newProperty.locationLongitude);
-//
-//    newProperty.fullAddress = self.propertyAddress;
-//    NSLog(@"Property address : %@", newProperty.fullAddress);
+}
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    NSLog(@"%@", info);
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    self.imageView.image = image;
+    [self dismissViewControllerAnimated:YES completion:^ {
+        
+    }];
+}
 
-
-// Save the context.
+-(void)insertNewObject {
+    
+    Items *item = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:self.managedObjectContext];
+    
+    item.itemName = self.name.text;
+    item.itemDescription = self.descr.text;
+    NSDecimalNumber *dn = [[NSDecimalNumber alloc] initWithString:self.value.text];
+    item.itemValue = dn;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    item.purchaseDate = [dateFormatter dateFromString:self.purchaseDate.text];
+    item.timeStamp = self.timeStamp;
+    
+    NSData *data = UIImagePNGRepresentation(self.imageView.image);
+    item.itemImage = data;
+    
+    
+    //    newProperty.timeStamp = self.timeStamp;
+    //    newProperty.propertyName = self.nameTextField.text;
+    //    newProperty.notes = self.noteTextView.text;
+    //    NSDecimalNumber *dn = [[NSDecimalNumber alloc] initWithString:self.buildingValueTextField.text];
+    //    newProperty.buildingValue = dn;
+    
+    //    newProperty.locationLatitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.latitude];
+    //    newProperty.locationLongitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.longitude];
+    //    NSLog(@"Property lat: %@ | lng: %@", newProperty.locationLatitude, newProperty.locationLongitude);
+    //
+    //    newProperty.fullAddress = self.propertyAddress;
+    //    NSLog(@"Property address : %@", newProperty.fullAddress);
+    
+    
+    // Save the context.
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
-    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    abort();
-
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+        
     }
 }
 -(void)configureView {
     
-    self.noteTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.noteTextView.layer.borderWidth = 0.3;
-    self.noteTextView.layer.cornerRadius = 5;
-    self.noteTextView.clipsToBounds = YES;
-   //  NSLog(@"===>>>> %@", self.property.timeStamp);
+    self.descr.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.descr.layer.borderWidth = 0.3;
+    self.descr.layer.cornerRadius = 5;
+    self.descr.clipsToBounds = YES;
+    //  NSLog(@"===>>>> %@", self.property.timeStamp);
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
     self.timeStampLabel.text = [dateFormatter stringFromDate:self.timeStamp];
     
-    self.locationTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.locationTextView.layer.borderWidth = 0.3;
-    self.locationTextView.layer.cornerRadius = 5;
-    self.locationTextView.clipsToBounds = YES;
-
-    // get the user's location here
-    self.locationTextView.text = @"Dummy address";
-    
-
 }
 
-- (void)handlebackgroundTap:(UITapGestureRecognizer *)sender {
-    
-    [self.view endEditing:YES];
-}
-
-- (IBAction)saveBarButton:(id)sender {
-//    [self.view endEditing:YES];
-//    
-//    NSString *title = self.nameTextField.text;
-//    NSString *detail = self.noteTextView.text;
-    
-//    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-//    [dateFormat setDateFormat:@"yyyyMMdd"];
-//    NSDate *date = [dateFormat dateFromString:self.timeStampLabel.text];
-//    
-//    NSNumberFormatter *decimalFormatter = [[NSNumberFormatter alloc] init];
-//    decimalFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-//    decimalFormatter.minimumFractionDigits = 2;
-//    decimalFormatter.maximumFractionDigits = 2;
-//    self.property.buildingValue = [NSDecimalNumber decimalNumberWithDecimal:[decimalFormatter numberFromString:self.buildingValueTextField.text].decimalValue];
-//    NSDecimalNumber *value = self.property.buildingValue;
-//    self.property.fullAddress = self.locationTextView.text;
-    
-    // [self.delegate addWithTitle:title detailText:detail timeStamp:date buildingValue:value];
-    [self insertNewObject];
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
 
 
 

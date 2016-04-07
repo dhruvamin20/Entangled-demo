@@ -3,36 +3,13 @@
     <entity name="Items" representedClassName="Items" syncable="YES">
         <attribute name="itemDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemValue" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="purchaseDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="receiptImage" optional="YES" attributeType="Binary" syncable="YES"/>
-        <relationship name="roomItems" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Room" inverseName="items" inverseEntity="Room" syncable="YES"/>
-    </entity>
-    <entity name="Property" representedClassName="Property">
-        <attribute name="buildingValue" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="currency" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="fullAddress" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="locationLatitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="locationLongitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="propertyName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="timeStamp" optional="YES" attributeType="Date">
-            <userInfo/>
-        </attribute>
-        <relationship name="rooms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Room" inverseName="property" inverseEntity="Room" syncable="YES"/>
-        <userInfo/>
-    </entity>
-    <entity name="Room" representedClassName="Room" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="roomImage" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="roomValue" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Items" inverseName="roomItems" inverseEntity="Items" syncable="YES"/>
-        <relationship name="property" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Property" inverseName="rooms" inverseEntity="Property" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <elements>
         <element name="Items" positionX="4579" positionY="131" width="128" height="148"/>
-        <element name="Property" positionX="4095" positionY="189" width="126" height="180"/>
-        <element name="Room" positionX="4320" positionY="234" width="128" height="118"/>
     </elements>
 </model>

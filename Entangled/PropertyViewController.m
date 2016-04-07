@@ -8,9 +8,16 @@
 
 #import "PropertyViewController.h"
 #import "PropertyEditTableViewController.h"
-#import "Property.h"
+#import "Items.h"
 
 @interface PropertyViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *savedImage;
+@property (weak, nonatomic) IBOutlet UILabel *nameOfItem;
+@property (weak, nonatomic) IBOutlet UILabel *descrOfItem;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *valueOfItem;
+@property (weak, nonatomic) IBOutlet UILabel *quantityOfItem;
+
 
 @end
 
