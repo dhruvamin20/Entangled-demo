@@ -25,7 +25,7 @@
     PropertyTableViewController *controller = (PropertyTableViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
     self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
+    self.locationManager.delegate = controller;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
     

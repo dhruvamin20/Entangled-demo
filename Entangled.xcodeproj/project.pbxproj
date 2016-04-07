@@ -20,6 +20,7 @@
 		FC36D5EE1CB6145300CF865F /* RoomSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC36D5ED1CB6145300CF865F /* RoomSearchTableViewController.m */; };
 		FC36D5F11CB6BD2500CF865F /* RoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC36D5F01CB6BD2500CF865F /* RoomTableViewController.m */; };
 		FC36D5F41CB6C7DC00CF865F /* RoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC36D5F31CB6C7DC00CF865F /* RoomTableViewCell.m */; };
+		FC36D5FA1CB6CC0900CF865F /* RoomEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC36D5F91CB6CC0900CF865F /* RoomEditTableViewController.m */; };
 		FCBFBF4C1CB5625E00EDD78E /* PropertyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBFBF4B1CB5625E00EDD78E /* PropertyTableViewCell.m */; };
 		FCC383E71CB40EC000E40EE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383E61CB40EC000E40EE1 /* main.m */; };
 		FCC383EA1CB40EC000E40EE1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC383E91CB40EC000E40EE1 /* AppDelegate.m */; };
@@ -67,6 +68,8 @@
 		FC36D5F01CB6BD2500CF865F /* RoomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomTableViewController.m; path = "Room View Controllers/RoomTableViewController.m"; sourceTree = "<group>"; };
 		FC36D5F21CB6C7DC00CF865F /* RoomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomTableViewCell.h; path = "Entangled/Custom Cells/RoomTableViewCell.h"; sourceTree = "<group>"; };
 		FC36D5F31CB6C7DC00CF865F /* RoomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomTableViewCell.m; path = "Entangled/Custom Cells/RoomTableViewCell.m"; sourceTree = "<group>"; };
+		FC36D5F81CB6CC0900CF865F /* RoomEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomEditTableViewController.h; path = "Room View Controllers/RoomEditTableViewController.h"; sourceTree = "<group>"; };
+		FC36D5F91CB6CC0900CF865F /* RoomEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomEditTableViewController.m; path = "Room View Controllers/RoomEditTableViewController.m"; sourceTree = "<group>"; };
 		FCBFBF4A1CB5625E00EDD78E /* PropertyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PropertyTableViewCell.h; path = "Entangled/Custom Cells/PropertyTableViewCell.h"; sourceTree = "<group>"; };
 		FCBFBF4B1CB5625E00EDD78E /* PropertyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PropertyTableViewCell.m; path = "Entangled/Custom Cells/PropertyTableViewCell.m"; sourceTree = "<group>"; };
 		FCC383E21CB40EC000E40EE1 /* Entangled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Entangled.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +126,8 @@
 				FC36D5ED1CB6145300CF865F /* RoomSearchTableViewController.m */,
 				FC36D5EF1CB6BD2500CF865F /* RoomTableViewController.h */,
 				FC36D5F01CB6BD2500CF865F /* RoomTableViewController.m */,
+				FC36D5F81CB6CC0900CF865F /* RoomEditTableViewController.h */,
+				FC36D5F91CB6CC0900CF865F /* RoomEditTableViewController.m */,
 			);
 			name = "Room View Controllers";
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				FCC383F31CB40EC000E40EE1 /* PropertyViewController.m in Sources */,
 				FCC383F01CB40EC000E40EE1 /* PropertyTableViewController.m in Sources */,
 				FC32D1061CB5AF8B0087614E /* SearchTableViewController.m in Sources */,
+				FC36D5FA1CB6CC0900CF865F /* RoomEditTableViewController.m in Sources */,
 				FCC383EA1CB40EC000E40EE1 /* AppDelegate.m in Sources */,
 				FCC383ED1CB40EC000E40EE1 /* Entangled.xcdatamodeld in Sources */,
 				FC36D5F11CB6BD2500CF865F /* RoomTableViewController.m in Sources */,

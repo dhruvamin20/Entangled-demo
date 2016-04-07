@@ -8,6 +8,8 @@
 
 #import "RoomTableViewController.h"
 #import "Room.h"
+#import "RoomTableViewCell.h"
+#import "RoomEditTableViewController.h"
 
 @interface RoomTableViewController ()
 
@@ -23,8 +25,6 @@
     // Build fetch request for assets in this inventory, sorted by timestamp
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Room"];
     fetchRequest.fetchBatchSize = 20;
-    fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:YES]];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"property.timeStamp == %@", [NSDate date]]; // self.insurentory.timeStamp];
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
@@ -54,14 +54,28 @@
     //Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//    self.navigationItem.rightBarButtonItem = addButton;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"showRoom"]) {
+        
+        // Inject room model into room view controller
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        RoomEditTableViewController* roomEditViewController = [segue destinationViewController];
+        roomEditViewController.room = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    }
 }
 
 #pragma mark - Table view data source
@@ -100,7 +114,7 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+       
         NSManagedObjectContext *context = self.fetchedResultsController.managedObjectContext;
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
         
@@ -202,14 +216,17 @@
 }
 
 
-#
+
 # pragma mark Helpers
-#
+
 
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     Room* newRoom = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    RoomTableViewCell *roomTableViewCell = (RoomTableViewCell*)cell;
+    roomTableViewCell.roomImage.image= newRoom.roomImage;
+
 
 }
 /*

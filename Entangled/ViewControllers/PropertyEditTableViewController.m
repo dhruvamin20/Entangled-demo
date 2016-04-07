@@ -14,14 +14,17 @@
 
 
 @interface PropertyEditTableViewController ()
-
+@property (nonatomic) NSDate *timeStamp;
 @end
 
 @implementation PropertyEditTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.timeStamp = [NSDate date];
     [self configureView];
+    
+    
     
     UITapGestureRecognizer *backgroundTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlebackgroundTap:)];
     [self.view addGestureRecognizer:backgroundTap];
@@ -32,31 +35,61 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+//
+//- (void)setProperty:(id)newProperty {
+//    
+//    if (_property != newProperty) {
+//        _property = newProperty;
+//        
+//        // Update the view.
+//        [self configureView];
+//    }
+//}
+-(void)insertNewObject {
+       Property *newProperty = [NSEntityDescription insertNewObjectForEntityForName:@"Property" inManagedObjectContext:self.managedObjectContext];
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)setProperty:(id)newProperty {
+    newProperty.timeStamp = self.timeStamp;
+    newProperty.propertyName = self.nameTextField.text;
+    newProperty.notes = self.noteTextView.text;
+    NSDecimalNumber *dn = [[NSDecimalNumber alloc] initWithString:self.buildingValueTextField.text];
+    newProperty.buildingValue = dn;
     
-    if (_property != newProperty) {
-        _property = newProperty;
-        
-        // Update the view.
-        [self configureView];
+//    newProperty.locationLatitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.latitude];
+//    newProperty.locationLongitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.longitude];
+//    NSLog(@"Property lat: %@ | lng: %@", newProperty.locationLatitude, newProperty.locationLongitude);
+//
+//    newProperty.fullAddress = self.propertyAddress;
+//    NSLog(@"Property address : %@", newProperty.fullAddress);
+
+
+// Save the context.
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    abort();
+
     }
 }
-
-
-
 -(void)configureView {
-    if (self.property) {
+    
+    self.noteTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.noteTextView.layer.borderWidth = 0.3;
+    self.noteTextView.layer.cornerRadius = 5;
+    self.noteTextView.clipsToBounds = YES;
+   //  NSLog(@"===>>>> %@", self.property.timeStamp);
+    
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
-    self.timeStampLabel.text = [dateFormatter stringFromDate:self.property.timeStamp];
-    self.locationTextView.text = self.property.fullAddress;
-    }
+    self.timeStampLabel.text = [dateFormatter stringFromDate:self.timeStamp];
+    
+    self.locationTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.locationTextView.layer.borderWidth = 0.3;
+    self.locationTextView.layer.cornerRadius = 5;
+    self.locationTextView.clipsToBounds = YES;
+
+    // get the user's location here
+    self.locationTextView.text = @"Dummy address";
+    
 
 }
 
@@ -66,78 +99,28 @@
 }
 
 - (IBAction)saveBarButton:(id)sender {
+//    [self.view endEditing:YES];
+//    
+//    NSString *title = self.nameTextField.text;
+//    NSString *detail = self.noteTextView.text;
     
-    NSString *title = self.nameTextField.text;
-    NSString *detail = self.noteTextView.text;
+//    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+//    [dateFormat setDateFormat:@"yyyyMMdd"];
+//    NSDate *date = [dateFormat dateFromString:self.timeStampLabel.text];
+//    
+//    NSNumberFormatter *decimalFormatter = [[NSNumberFormatter alloc] init];
+//    decimalFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+//    decimalFormatter.minimumFractionDigits = 2;
+//    decimalFormatter.maximumFractionDigits = 2;
+//    self.property.buildingValue = [NSDecimalNumber decimalNumberWithDecimal:[decimalFormatter numberFromString:self.buildingValueTextField.text].decimalValue];
+//    NSDecimalNumber *value = self.property.buildingValue;
+//    self.property.fullAddress = self.locationTextView.text;
     
-    [self.delegate addWithTitle:title detailText:detail];
+    // [self.delegate addWithTitle:title detailText:detail timeStamp:date buildingValue:value];
+    [self insertNewObject];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-//#pragma mark - Table view data source
-//
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-//    return 0;
-//}
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -12,7 +12,17 @@
 @interface PropertyViewController : UIViewController
 
 @property (strong, nonatomic) Property *detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *propertyNameLabel;
+
+@property (weak, nonatomic) IBOutlet UITextView *textViewNote;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
+@property (weak, nonatomic) IBOutlet UITextView *locationView;
+
+@property (weak, nonatomic) IBOutlet UILabel *buildingValueLabel;
 
 @end
 

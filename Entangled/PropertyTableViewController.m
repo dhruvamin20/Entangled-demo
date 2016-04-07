@@ -28,13 +28,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-//    self.navigationItem.rightBarButtonItem = addButton;
-//    self.detailViewController = (PropertyViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    ((AppDelegate*)[UIApplication sharedApplication].delegate).locationManager.delegate = self;
-
+    //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    //    self.navigationItem.rightBarButtonItem = addButton;
+    //    self.detailViewController = (PropertyViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    //    ((AppDelegate*)[UIApplication sharedApplication].delegate).locationManager.delegate = self;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -48,10 +48,12 @@
 }
 
 - (void)insertNewObject:(id)sender {
-    [self performSegueWithIdentifier:@"newProperty" sender:self];
-    }
+  
 
--(void)addWithTitle:(NSString*)title detailText:(NSString*)detail {
+    [self performSegueWithIdentifier:@"newProperty" sender:self];
+}
+
+-(void)addWithTitle:(NSString*)title detailText:(NSString*)detail timeStamp:(NSDate *)timeStamp buildingValue:(NSDecimalNumber *)value {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     Property *newProperty = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
@@ -60,6 +62,8 @@
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     newProperty.propertyName = title;
     newProperty.notes = detail;
+    newProperty.timeStamp = timeStamp;
+    newProperty.buildingValue = value;
     
     newProperty.locationLatitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.latitude];
     newProperty.locationLongitude = [NSNumber numberWithDouble:self.propertyLocation.coordinate.longitude];
@@ -75,7 +79,7 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-
+    
     
 }
 
@@ -91,7 +95,7 @@
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:[locations lastObject] completionHandler:^(NSArray *placemarks, NSError *error)
      {
-         if (!(error))
+         if (!error)
          {
              CLPlacemark *placemark = [placemarks lastObject];
              self.propertyAddress = [placemark.addressDictionary[@"FormattedAddressLines"] componentsJoinedByString:@", "];
@@ -117,13 +121,17 @@
         Property *currentProperty = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         PropertyViewController *controller = (PropertyViewController *)segue.destinationViewController;
         controller.detailItem = currentProperty;
-      controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-      controller.navigationItem.leftItemsSupplementBackButton = YES;
+        //        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+        //        controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
     if ([segue.identifier isEqualToString:@"newProperty"]) {
-        [segue.destinationViewController setDelegate:self];
+        PropertyEditTableViewController *petvc = segue.destinationViewController;
+        petvc.delegate = self;
+        petvc.managedObjectContext = self.managedObjectContext;
+        // NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        // petvc.property = [self.fetchedResultsController objectAtIndexPath:indexPath];
     }
-
+    
 }
 
 #pragma mark - Table View
@@ -139,7 +147,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PropertyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-//    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    //    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -153,7 +161,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-            
+        
         NSError *error = nil;
         if (![context save:&error]) {
             // Replace this implementation with code to handle the error appropriately.
@@ -168,8 +176,8 @@
     Property *property = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.titleLabel.text = property.propertyName;
     
-//    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    //    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    //    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
     cell.detailLabel.text = property.notes;
 }
 
@@ -192,7 +200,7 @@
     
     // Edit the sort key as appropriate.
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
-
+    
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
     // Edit the section name key path and cache name if appropriate.
@@ -201,16 +209,16 @@
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
-	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
-	     // Replace this implementation with code to handle the error appropriately.
-	     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
+    NSError *error = nil;
+    if (![self.fetchedResultsController performFetch:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
     
     return _fetchedResultsController;
-}    
+}
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
@@ -264,13 +272,13 @@
     [self.tableView endUpdates];
 }
 /*
-// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
+ // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
  
  - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    // In the simplest, most efficient, case, reload the table view.
-    [self.tableView reloadData];
-}
+ {
+ // In the simplest, most efficient, case, reload the table view.
+ [self.tableView reloadData];
+ }
  */
 
 @end

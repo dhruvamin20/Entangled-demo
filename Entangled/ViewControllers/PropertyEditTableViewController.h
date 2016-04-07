@@ -10,13 +10,13 @@
 @class Property;
 @protocol AddNewProperty <NSObject>
 
--(void)addWithTitle:(NSString*)title detailText:(NSString*)detail;
+-(void)addWithTitle:(NSString*)title detailText:(NSString*)detail timeStamp:(NSDate *)timeStamp buildingValue:(NSDecimalNumber*)value;
 
 @end
 
 @interface PropertyEditTableViewController : UITableViewController <UITextFieldDelegate>
 
-@property (strong, nonatomic) Property *property;
+// @property (strong, nonatomic) Property *property;
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextView *noteTextView;
@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *airDropBarButton;
 
 @property (weak, nonatomic) id <AddNewProperty>delegate;
+@property (nonatomic) NSManagedObjectContext *managedObjectContext;
 
 
 @end
