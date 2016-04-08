@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 @class Property;
-@protocol AddNewProperty <NSObject>
-
--(void)addWithTitle:(NSString*)title detailText:(NSString*)detail timeStamp:(NSDate *)timeStamp buildingValue:(NSDecimalNumber*)value;
-
-@end
+//@protocol AddNewProperty <NSObject>
+//
+////-(void)addWithTitle:(NSString*)title detailText:(NSString*)detail timeStamp:(NSDate *)timeStamp buildingValue:(NSDecimalNumber*)value;
+//
+//@end
 
 @interface PropertyEditTableViewController : UITableViewController <UITextFieldDelegate>
 
@@ -29,7 +29,7 @@
 //@property (weak, nonatomic) IBOutlet UIBarButtonItem *reminderBarButton;
 //@property (weak, nonatomic) IBOutlet UIBarButtonItem *airDropBarButton;
 
-@property (weak, nonatomic) id <AddNewProperty>delegate;
+//@property (weak, nonatomic) id <AddNewProperty>delegate;
 @property (nonatomic) NSManagedObjectContext *managedObjectContext;
 
 

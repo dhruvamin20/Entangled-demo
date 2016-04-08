@@ -13,7 +13,7 @@
 #import "PropertyEditTableViewController.h"
 
 
-@interface PropertyTableViewController () <AddNewProperty>
+@interface PropertyTableViewController ()
 
 @property (nonatomic) CLLocation *propertyLocation;
 @property (nonatomic) NSString *propertyAddress;
@@ -85,47 +85,47 @@
 #pragma mark - Location Manager Delegate
 
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    
-    self.propertyLocation = [locations lastObject];
-    NSLog(@"Current location %@", self.propertyLocation);
-    [manager stopUpdatingLocation];
-    
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder reverseGeocodeLocation:[locations lastObject] completionHandler:^(NSArray *placemarks, NSError *error)
-     {
-         if (!error)
-         {
-             CLPlacemark *placemark = [placemarks lastObject];
-             self.propertyAddress = [placemark.addressDictionary[@"FormattedAddressLines"] componentsJoinedByString:@", "];
-             //NSLog(@"Geocode addr: %@", self.propertyAddress);
-             
-         } else {
-             NSLog(@"Geocoder failed with error %@", [error localizedDescription]);
-         }
-     }];
-    
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"Location manager error %@", [error localizedDescription]);
-}
+//- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+//    
+//    self.propertyLocation = [locations lastObject];
+//    NSLog(@"Current location %@", self.propertyLocation);
+//    [manager stopUpdatingLocation];
+//    
+//    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+//    [geocoder reverseGeocodeLocation:[locations lastObject] completionHandler:^(NSArray *placemarks, NSError *error)
+//     {
+//         if (!error)
+//         {
+//             CLPlacemark *placemark = [placemarks lastObject];
+//             self.propertyAddress = [placemark.addressDictionary[@"FormattedAddressLines"] componentsJoinedByString:@", "];
+//             //NSLog(@"Geocode addr: %@", self.propertyAddress);
+//             
+//         } else {
+//             NSLog(@"Geocoder failed with error %@", [error localizedDescription]);
+//         }
+//     }];
+//    
+//}
+//
+//- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+//{
+//    NSLog(@"Location manager error %@", [error localizedDescription]);
+//}
 
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Property *currentProperty = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        Items *currentProperty = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         PropertyViewController *controller = (PropertyViewController *)segue.destinationViewController;
         controller.detailItem = currentProperty;
         //        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         //        controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
-    if ([segue.identifier isEqualToString:@"newProperty"]) {
+    if ([segue.identifier isEqualToString:@"newItem"]) {
         PropertyEditTableViewController *petvc = segue.destinationViewController;
-        petvc.delegate = self;
+//        petvc.delegate = self;
         petvc.managedObjectContext = self.managedObjectContext;
         // NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         // petvc.property = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -246,7 +246,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            //[self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:

@@ -37,20 +37,16 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        self.propertyNameLabel.text = self.detailItem.propertyName;
-        self.textViewNote.text = self.detailItem.notes;
+        self.nameOfItem.text = self.detailItem.itemName;
+        self.descrOfItem.text = self.detailItem.itemDescription;
         
-        NSNumberFormatter *decimalFormatter = [[NSNumberFormatter alloc] init];
-        decimalFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-        decimalFormatter.minimumFractionDigits = 2;
-        decimalFormatter.maximumFractionDigits = 2;
-        self.buildingValueLabel.text = [decimalFormatter stringFromNumber:self.detailItem.buildingValue];
-       
-        self.locationView.text = self.detailItem.fullAddress;
+        self.valueOfItem.text = self.detailItem.itemValue.stringValue;
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+        
         [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
         self.timeLabel.text = [dateFormatter stringFromDate:self.detailItem.timeStamp];
-        
+        self.quantityOfItem.text = [NSString stringWithFormat:@"%d", self.detailItem.quantity];
+        self.savedImage.image = [UIImage imageWithData:self.detailItem.itemImage];
     }
 }
 

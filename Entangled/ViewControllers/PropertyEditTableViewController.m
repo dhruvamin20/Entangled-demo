@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *name;
 @property (weak, nonatomic) IBOutlet UITextView *descr;
 @property (weak, nonatomic) IBOutlet UITextField *value;
-@property (weak, nonatomic) IBOutlet UITextField *purchaseDate;
+@property (weak, nonatomic) IBOutlet UITextField *quantityItem;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *timeStampLabel;
 
@@ -70,11 +70,12 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     
-    item.purchaseDate = [dateFormatter dateFromString:self.purchaseDate.text];
+    
     item.timeStamp = self.timeStamp;
     
     NSData *data = UIImagePNGRepresentation(self.imageView.image);
     item.itemImage = data;
+    item.quantity = self.quantityItem.text.intValue;
     
     
     //    newProperty.timeStamp = self.timeStamp;
